@@ -1,0 +1,16 @@
+// Offer styles
+
+.offer {
+	background-color: $light-color;
+	ul {
+		// line-height: 3em;
+		li {
+			list-style: inside;
+			margin-bottom: 2em;
+			line-height: 1.5;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

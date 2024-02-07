@@ -1,0 +1,9 @@
+// Fotter styles
+
+.footer {
+	background-color: $dark-color;
+	color: $light-color;
+	&__copy {
+		padding: 2rem 0;
+	}
+}

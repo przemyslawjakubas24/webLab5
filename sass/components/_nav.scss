@@ -1,0 +1,117 @@
+// Navigation style
+
+.nav {
+	position: sticky;
+	top: 0;
+	background-image: $primary-gradient;
+	z-index: 205;
+	.container {
+		padding: 1.5em 2em;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.nav__container {
+		transition-property: padding;
+		@include default-animation;
+	}
+	&__list {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100vh;
+		transform: translateX(100%);
+		transition-property: transform;
+		@include default-animation;
+		background-color: $primary-color;
+		li {
+			margin: 0 1em 2em 0;
+			&:last-child {
+				background-color: $dark-color;
+				border-radius: $default-rounding;
+			}
+		}
+		&--active {
+			transform: translateX(0);
+		}
+	}
+	&__item {
+		position: relative;
+		display: inline-block;
+		padding: .5em 1em;
+		color: $light-color;
+		font-size: 2rem;
+		text-transform: uppercase;
+		transition-property: font-size, width, height;
+		@include default-animation;
+	}
+	&__item::before,
+	&__item::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 0;
+		transition-property: font-size, width, height;
+		@include default-animation;
+	}
+	&__item::before {
+		top: -2px;
+		left: -4px;
+		border-top: 0;
+		border-left: 0;
+	}
+	&__item::after {
+		bottom: -2px;
+		right: -4px;
+		border-bottom: 0;
+		border-right: 0;
+	}
+	&__item:hover::before,
+	&__item:hover::after {
+		width: 50px;
+		height: 50%;
+	}
+	&__item:hover::before {
+		border-top: 2px solid $light-color;
+		border-left: 2px solid $light-color;
+	}
+	&__item:hover::after {
+		border-bottom: 2px solid $light-color;
+		border-right: 2px solid $light-color;
+	}
+}
+
+@media (min-width: 992px) {
+	.nav {
+		background-color: $primary-color;
+		.container {
+			padding: 1.5em 2em;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&__list {
+			position: relative;
+			display: flex;
+			justify-content: end;
+			flex-direction: row;
+			height: 100%;
+			transform: translateX(0);
+			background-color: transparent;
+			li {
+				margin-bottom: 0;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+		&__item {
+			font-size: 1.6rem;
+		}
+	}
+}
