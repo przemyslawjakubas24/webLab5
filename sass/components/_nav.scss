@@ -32,8 +32,40 @@
 		li {
 			margin: 0 1em 2em 0;
 			&:last-child {
-				background-color: $dark-color;
-				border-radius: $default-rounding;
+				.nav__item {
+					background-color: $dark-color;
+					border-radius: $default-rounding;
+					position: relative;
+					transition-property: background-color 0.3s;
+					overflow: hidden;
+					z-index: 0;
+				}
+				.nav__item:hover {
+					color: $dark-color;
+				}
+				.nav__item::before,
+				.nav__item::after {
+					border: none;
+				}
+				.nav__item::before {
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					content: '';
+					width: 100%;
+					height: 100%;
+					transform: scaleX(0);
+					transform-origin: right;
+					transition: transform 0.3s;
+					z-index: -10;
+					background-color: $light-color;
+					color: $dark-color;
+				}
+				.nav__item:hover::before {
+					transform: scaleX(1);
+					transform-origin: left;
+				}
 			}
 		}
 		&--active {
@@ -43,7 +75,7 @@
 	&__item {
 		position: relative;
 		display: inline-block;
-		padding: .5em 1em;
+		padding: 0.5em 1em;
 		color: $light-color;
 		font-size: 2rem;
 		text-transform: uppercase;

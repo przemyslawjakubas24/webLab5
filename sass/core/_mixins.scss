@@ -5,14 +5,14 @@
     transition-timing-function: ease-in-out;
 }
 
-@mixin divider-section {
-    position: absolute;
-    bottom: -10px;
-	width: 50%;
-	height: 40px;
-	content: '';
-	background-color: $light-color;
-	background-color: red;
-	z-index: 500;
-}
+// @mixin divider-section {
+//     position: absolute;
+//     bottom: -10px;
+// 	width: 50%;
+// 	height: 40px;
+// 	content: '';
+// 	background-color: $light-color;
+// 	background-color: red;
+// 	z-index: 500;
+// }
 

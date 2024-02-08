@@ -9,8 +9,4 @@
 	background-color: $primary-color;
 	color: $light-color;
 	border-radius: $default-rounding;
-	&:last-child {
-		margin-bottom: 0;
-	}
-	
 }

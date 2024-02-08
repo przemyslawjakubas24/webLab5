@@ -119,9 +119,39 @@ button {
 .nav__list li {
   margin: 0 1em 2em 0;
 }
-.nav__list li:last-child {
+.nav__list li:last-child .nav__item {
   background-color: #222;
   border-radius: 0.25em;
+  position: relative;
+  transition-property: background-color 0.3s;
+  overflow: hidden;
+  z-index: 0;
+}
+.nav__list li:last-child .nav__item:hover {
+  color: #222;
+}
+.nav__list li:last-child .nav__item::before,
+.nav__list li:last-child .nav__item::after {
+  border: none;
+}
+.nav__list li:last-child .nav__item::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s;
+  z-index: -10;
+  background-color: #eee;
+  color: #222;
+}
+.nav__list li:last-child .nav__item:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 .nav__list--active {
   transform: translateX(0);
@@ -273,9 +303,6 @@ button {
   background-color: #179fed;
   color: #eee;
   border-radius: 0.25em;
-}
-.btn:last-child {
-  margin-bottom: 0;
 }
 
 .container {
